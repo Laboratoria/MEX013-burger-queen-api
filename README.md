@@ -44,8 +44,7 @@ _endpoints_ (puntos de conexión o URLs) y nos piden completar la aplicación.
 Esto implica que tendremos que partir por leer la implementación existente, y
 familiarizarnos con el _stack_ elegido ([Node.js](https://nodejs.org/) y
 [Express](https://expressjs.com/)) y complementarlo con un motor de bases de
-datos, el cual tu deberás elegir entre [MongoDB](https://www.mongodb.com/),
-[PostgreSQL](https://www.postgresql.org/) y [MySQL](https://www.mysql.com/).
+datos, el cual tu deberás elegir entre [MongoDB](https://www.mongodb.com/).
 
 La clienta nos ha dado un [link a la documentación](https://app.swaggerhub.com/apis-docs/ssinuco/BurgerQueenAPI/2.0.0)
 que especifica el comportamiento esperado de la API que expondremos por
@@ -55,8 +54,7 @@ implementar la aplicación, qué parámetros esperan, qué deben responder, etc.
 El objetivo principal de aprendizaje es adquirir experiencia con **Node.js**
 como herramienta para desarrollar _aplicaciones de servidor_, junto con una
 serie de herramientas comunes usadas en este tipo de contexto (Express como
-framework, MongoDB, PostgreSQL o MySQL como base datos, contenedores de docker,
-etc).
+framework, MongoDB como base datos, contenedores de docker, etc).
 
 En este proyecto tendrás que construir un servidor web que debe _servir_ `JSON`
 sobre `HTTP`, y desplegarlo en un servidor en la nube.
@@ -64,7 +62,7 @@ sobre `HTTP`, y desplegarlo en un servidor en la nube.
 Para completar el proyecto tendrás que familiarizarte con conceptos como
 **rutas** (_routes_), **URLs**, **HTTP** y **REST** (verbs, request, response,
 headers, body, status codes...), **JSON**, **JWT** (_JSON Web Tokens_),
-**conexión con una base datos** (`MongoDB`, `PostgreSQL`, o `MySQL`),
+**conexión con una base datos** (`MongoDB`),
 **variables de entorno**, **deployment**, **contenedores de `docker`**...
 
 ## 3. Objetivos de aprendizaje
@@ -262,87 +260,12 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [MongoDB Backup Methods - Docs (en inglés)](https://docs.mongodb.com/manual/core/backups/)
 </p></details>
 
-### PostgreSQL
-
-- [ ] **Cliente de terminal psql**
-
-  <details><summary>Links</summary><p>
-
-  * [psql - Docs (en inglés)](https://www.postgresql.org/docs/14/app-psql.html)
-</p></details>
-
-- [ ] **Tipos de datos**
-
-  <details><summary>Links</summary><p>
-
-  * [Chapter 8. Data Types - Docs (en inglés)](https://www.postgresql.org/docs/14/datatype.html)
-</p></details>
-
-- [ ] **Respaldo y restauración (backup/restore)**
-
-  <details><summary>Links</summary><p>
-
-  * [Chapter 26. Backup and Restore - Docs (en inglés)](https://www.postgresql.org/docs/14/backup.html)
-</p></details>
-
-### MySQL
-
-- [ ] **Cliente de terminal mysql**
-
-  <details><summary>Links</summary><p>
-
-  * [The MySQL Command-Line Client - Docs (en inglés)](https://dev.mysql.com/doc/refman/8.0/en/mysql.html)
-</p></details>
-
-- [ ] **Tipos de datos**
-
-  <details><summary>Links</summary><p>
-
-  * [Chapter 11 Data Types - Docs (en inglés)](https://dev.mysql.com/doc/refman/8.0/en/data-types.html)
-</p></details>
-
-- [ ] **Respaldo y restauración (backup/restore)**
-
-  <details><summary>Links</summary><p>
-
-  * [Chapter 7 Backup and Recovery - Docs (en inglés)](https://dev.mysql.com/doc/refman/8.0/en/backup-and-recovery.html)
-  * [mysqldump — A Database Backup Program - Docs (en inglés)](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html)
-</p></details>
-
 ### Bases de datos
 
 - [ ] **Modelado de datos**
 
 - [ ] **Conexión**
 
-### SQL
-
-- [ ] **Creación y modificación de tablas**
-
-  <details><summary>Links</summary><p>
-
-  * [SQL CREATE TABLE Statement - w3schools (en inglés)](https://www.w3schools.com/sql/sql_create_table.asp)
-  * [CREATE TABLE Statement - PostgreSQL Docs (en inglés)](https://www.postgresql.org/docs/9.1/sql-createtable.html)
-  * [ALTER TABLE Statement - PostgreSQL Docs (en inglés)](https://www.postgresql.org/docs/9.1/sql-altertable.html)
-</p></details>
-
-- [ ] **Operaciones CRUD (Create-Read-Update-Delete)**
-
-  <details><summary>Links</summary><p>
-
-  * [INSERT](https://www.postgresql.org/docs/9.5/sql-insert.html)
-  * [SELECT](https://www.postgresql.org/docs/9.5/sql-select.html)
-  * [UPDATE](https://www.postgresql.org/docs/9.1/sql-update.html)
-  * [DELETE](https://www.postgresql.org/docs/8.1/sql-delete.html)
-</p></details>
-
-- [ ] **Borrado de tablas o bases de datos enteras con DROP**
-
-  <details><summary>Links</summary><p>
-
-  * [DROP TABLE](https://www.postgresql.org/docs/8.2/sql-droptable.html)
-  * [DROP DATABASE](https://www.postgresql.org/docs/8.2/sql-dropdatabase.html)
-</p></details>
 
 ## 4. Consideraciones generales
 
@@ -451,7 +374,7 @@ Nuestra aplicación usa las siguientes variables de entorno:
 * `PORT`: Si no se ha especificado un puerto como argumento de lína de comando,
   podemos usar la variable de entorno `PORT` para especificar el puerto. Valor
   por defecto `8080`.
-* `DB_URL`: El _string_ de conexión de _MongoDB_ o _MySQL_. Cuando ejecutemos la
+* `DB_URL`: El _string_ de conexión de _MongoDB_. Cuando ejecutemos la
   aplicación en nuestra computadora (en entorno de desarrollo), podemos usar el
   una base de datos local, pero en producción deberemos utilizar las instancias
   configuradas con `docker-compose` (mas sobre esto en la siguiente sección de
@@ -503,9 +426,6 @@ explorar las siguientes opciones:
 * Si quieres trabajar con MongoDB, [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
   es una muy buena opción para alojar nuestra base datos de producción, la cuál
   podemos usar en conjunción con cualquiera de las opciones mencionadas arriba.
-* Si quieres trabajar con PostgreSql, [ElephantSQL](https://www.elephantsql.com/plans.html)
-  es una muy buena opción para alojar nuestra base datos de producción, la cuál
-  podemos usar en conjunción con cualquiera de las opciones mencionadas arriba.
 
 Si tienes dudas sobre las diferentes (y múltiples) opciones de despliegue no
 dudes en consultar con tus pares y tus coaches.
@@ -523,8 +443,6 @@ dudes en consultar con tus pares y tus coaches.
 
 * [Express](https://expressjs.com/)
 * [MongoDB](https://www.mongodb.com/)
-* [PostgreSQL](https://www.postgresql.org/)
-* [MySQL](https://www.mysql.com/)
 * [docker](https://docs.docker.com/)
 * [docker compose](https://docs.docker.com/compose/)
 * [¿Qué es Docker? | Curso de Docker | Platzi Cursos](https://youtu.be/hQgvt-s-AHQ)
