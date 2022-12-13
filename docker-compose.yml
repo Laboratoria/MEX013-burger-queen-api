@@ -1,14 +1,18 @@
 version: "3"
 services:
-#    db:
-#    # TODO: configura tu imagen de base de datos, te recomendamos una de estas:
-#    # https://hub.docker.com/_/mongo
-#    # https://hub.docker.com/_/postgres
-#    # https://hub.docker.com/_/mysql
-#    networks:
-#      - private
+  db:
+   image: mongo:6
+   restart: unless-stopped
+   env_file: ./.env
+   environment:
+     - MONGO_INITDB_ROOT_USERNAME=$MONGODB_USER
+     - MONGO_INITDB_ROOT_PASSWORD=$MONGODB_PASSWORD
+   volumes:
+     - db:/data/db
+   networks:
+     - private
   node:
-    image: node:12 # https://hub.docker.com/_/node/
+    image: node:18
     user: node
     working_dir: /home/node/app
     environment:
@@ -28,8 +32,8 @@ services:
       - 8080:8080
     # reinstalamos las dependencias y levantamos el servidor
     command: bash -c 'rm -rf node_modules && npm install && npm start'
-#    depends_on:
-#      - db
+    depends_on:
+      - db
     networks:
       - public
       - private
@@ -38,3 +42,5 @@ networks:
     internal: false
   private:
     internal: true
+volumes:
+  db:
